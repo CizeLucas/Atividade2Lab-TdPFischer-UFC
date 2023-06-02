@@ -1,8 +1,5 @@
 package interfaceGrafica;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 

@@ -4,11 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.*;
-import javax.swing.border.Border;
-
-import org.w3c.dom.css.RGBColor;
 
 @SuppressWarnings("serial")
 public class InterfaceGrafica extends JFrame {

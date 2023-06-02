@@ -1,16 +1,7 @@
 package interfaceGrafica;
 
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.lang.foreign.GroupLayout;
-
-import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import javax.swing.SpringLayout;
-import javax.swing.border.Border;
 
 public class painelDeDeletar extends Paineis{
 

@@ -1,17 +1,14 @@
 package interfaceGrafica;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridLayout;
 
 @SuppressWarnings("serial")
 public class Paineis extends JPanel{
