@@ -18,17 +18,16 @@ public class painelDeDeletar extends Paineis{
 		this.setLayout(new GridLayout(2,2));
 
 		
-		JPanel jpE = criarJPanel();
-		jpE.setLayout(new FlowLayout());
-		jpE.add(criarJLabel("   Matricula: "));
-		jpE.add(criarJTextField());
+		JPanel jp1 = criarJPanel(corPadraoJPanel);
+		//jp1.setLayout(new FlowLayout());
+		jp1.add(criarJLabel("   Matricula: ", corPadraoJLabel));
+		jp1.add(criarJTextField());
+		this.add(jp1);
 		
-		this.add(jpE);
+		JPanel jp2 = criarJPanel(corPadraoJPanel);
+		jp2.add(criarJButton("Deletar", corPadraoJButton));
 		
-		JPanel jpD = criarJPanel();
-		jpD.add(criarJButton("Deletar"));
-		
-		this.add(jpD);
+		this.add(jp2);
 		
 		
 		

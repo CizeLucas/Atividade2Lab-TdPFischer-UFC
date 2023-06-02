@@ -8,13 +8,16 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+import org.w3c.dom.css.RGBColor;
+
 @SuppressWarnings("serial")
-public class InterfaceGrafica extends JFrame{
+public class InterfaceGrafica extends JFrame {
 	
 	JPanel painel1;
 	ArrayList<JPanel> JPanels;
 	
-	public InterfaceGrafica() {
+public InterfaceGrafica() {
+	
 		ImageIcon image = new ImageIcon("ThumbsupSmiley.png");
 		
 		JPanels = new ArrayList<JPanel>();
@@ -41,27 +44,31 @@ public class InterfaceGrafica extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBackground(Color.BLACK);
 		this.setLayout(new BorderLayout());
+		
+		
 		painel1 = criarJPanel(Color.WHITE);
 		JButton botao;
 		
-		botao = criarJButton("Cadastrar");
+		botao = criarJButton("Cadastrar", true);
 		botao.addActionListener(new botaoCadastrarApertado());
 		painel1.add(botao);
 		
-		botao = criarJButton("Listar");
+		botao = criarJButton("Listar", true);
 		botao.addActionListener(new botaoListarApertado());
 		painel1.add(botao);
 		
-		botao = criarJButton("Atualizar");
+		botao = criarJButton("Atualizar", true);
 		botao.addActionListener(new botaoAtualizarApertado());
 		painel1.add(botao);
 		
-		botao = criarJButton("Deletar");
+		botao = criarJButton("Deletar", true);
 		botao.addActionListener(new botaoDeletarApertado());
 		painel1.add(botao);
 		
-		this.add(painel1, BorderLayout.NORTH);
+		painel1.setBackground(new Color(201, 218, 248));
+		painel1.setBorder(BorderFactory.createLineBorder(Color.WHITE,3));
 		
+		this.add(painel1, BorderLayout.NORTH);
 		
 		this.setVisible(true);
 	}
@@ -72,9 +79,11 @@ public class InterfaceGrafica extends JFrame{
 		return p;
 	}
 	
-	public JButton criarJButton(String msg) {
+	public JButton criarJButton(String msg, boolean aplicarCor) {
 		JButton b = new JButton(msg);	
-		
+		if(aplicarCor) {
+			b.setBackground(new Color(217, 234, 211));
+		}
 		return b;
 	}
 	
@@ -96,11 +105,7 @@ public class InterfaceGrafica extends JFrame{
 		this.repaint();
 	}
 	
-	public JTextArea criarJTextArea() {
-		JTextArea textarea = new JTextArea();
-		
-		return textarea;
-	}
+	
 	
 	private class botaoCadastrarApertado implements ActionListener {
 		public void actionPerformed(ActionEvent e) {

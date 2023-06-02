@@ -1,25 +1,40 @@
 package interfaceGrafica;
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
+
+import javax.swing.BoxLayout;
+import javax.swing.JPanel;
 
 public class painelDeCadastro extends Paineis{
 	
 	public painelDeCadastro() {
-		setLayout(new GridLayout(5,2, 10, 10));
+		//this.setLayout(new GridLayout(5,2, 10, 10));
+		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		
-		this.add(criarJLabel("   Nome:"));
-		this.add(criarJTextField());
+		JPanel painel1 = criarJPanel(corPadraoJPanel);
+		painel1.add(criarJLabel("Nome:", corPadraoJLabel));
+		painel1.add(criarJTextField());
+		this.add(painel1);
 		
-		this.add(criarJLabel("   CPF:"));
-		this.add(criarJTextField());
+		JPanel painel2 = criarJPanel(corPadraoJPanel);
+		painel2.add(criarJLabel("CPF:", corPadraoJLabel));
+		painel2.add(criarJTextField());
+		this.add(painel2);
 		
-		this.add(criarJLabel("   Matricula:"));
-		this.add(criarJTextField());
+		JPanel painel3 = criarJPanel(corPadraoJPanel);
+		painel3.add(criarJLabel("Matricula:", corPadraoJLabel));
+		painel3.add(criarJTextField());
+		this.add(painel3);
 		
-		this.add(criarJLabel("   Vertente:"));
-		this.add(criarJTextField());
+		JPanel painel4 = criarJPanel(corPadraoJPanel);
+		painel4.add(criarJLabel("Vertente:", corPadraoJLabel));
+		painel4.add(criarJTextField());
+		this.add(painel4);
 		
-		this.add(criarJButton("Cadastrar"));
+		JPanel painel5 = criarJPanel(corPadraoJPanel);
+		painel5.add(criarJButton("Cadastrar", corPadraoJButton));
+		this.add(painel5);
 		
 		this.setVisible(false);
 	}
