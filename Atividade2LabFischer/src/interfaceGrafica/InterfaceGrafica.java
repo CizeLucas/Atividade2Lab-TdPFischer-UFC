@@ -15,6 +15,8 @@ public class InterfaceGrafica extends JFrame{
 	ArrayList<JPanel> JPanels;
 	
 	public InterfaceGrafica() {
+		ImageIcon image = new ImageIcon("ThumbsupSmiley.png");
+		
 		JPanels = new ArrayList<JPanel>();
 		JPanel painelDeCadastro;
 		JPanel painelDeListar;
@@ -35,12 +37,11 @@ public class InterfaceGrafica extends JFrame{
 		
 		this.setSize(500, 500);
 		this.setTitle("Sistema");
+		this.setIconImage(image.getImage());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBackground(Color.BLACK);
 		this.setLayout(new BorderLayout());
-		
 		painel1 = criarJPanel(Color.WHITE);
-		//painel1.setLayout(new FlowLayout());
 		JButton botao;
 		
 		botao = criarJButton("Cadastrar");
