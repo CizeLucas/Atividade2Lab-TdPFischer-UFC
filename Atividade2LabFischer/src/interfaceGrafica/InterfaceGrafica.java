@@ -6,14 +6,17 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 
+import controller.*;
+
 @SuppressWarnings("serial")
 public class InterfaceGrafica extends JFrame {
 	
 	JPanel painel1;
 	ArrayList<JPanel> JPanels;
+	DadosAlunos alunos;
 	
-public InterfaceGrafica() {
-	
+public InterfaceGrafica(DadosAlunos alunos) {
+		this.alunos = alunos;
 		ImageIcon image = new ImageIcon("ThumbsupSmiley.png");
 		
 		JPanels = new ArrayList<JPanel>();
@@ -22,16 +25,16 @@ public InterfaceGrafica() {
 		JPanel painelDeAtualizar;
 		JPanel painelDeDeletar;
 		
-		painelDeCadastro = new painelDeCadastro().retornarPainel();
+		painelDeCadastro = new painelDeCadastro(alunos).retornarPainel();
 		JPanels.add(painelDeCadastro);
 		
-		painelDeListar = new painelDeListar().retornarPainel();
+		painelDeListar = new painelDeListar(alunos).retornarPainel();
 		JPanels.add(painelDeListar);
 		
-		painelDeAtualizar = new painelDeAtualizar().retornarPainel();
+		painelDeAtualizar = new painelDeAtualizar(alunos).retornarPainel();
 		JPanels.add(painelDeAtualizar);
 		
-		painelDeDeletar = new painelDeDeletar().retornarPainel();
+		painelDeDeletar = new painelDeDeletar(alunos).retornarPainel();
 		JPanels.add(painelDeDeletar);
 		
 		this.setSize(500, 500);
@@ -46,19 +49,19 @@ public InterfaceGrafica() {
 		JButton botao;
 		
 		botao = criarJButton("Cadastrar", true);
-		botao.addActionListener(new botaoCadastrarApertado());
+		botao.addActionListener(new botaoApertado(0));
 		painel1.add(botao);
 		
 		botao = criarJButton("Listar", true);
-		botao.addActionListener(new botaoListarApertado());
+		botao.addActionListener(new botaoApertado(1));
 		painel1.add(botao);
 		
 		botao = criarJButton("Atualizar", true);
-		botao.addActionListener(new botaoAtualizarApertado());
+		botao.addActionListener(new botaoApertado(2));
 		painel1.add(botao);
 		
 		botao = criarJButton("Deletar", true);
-		botao.addActionListener(new botaoDeletarApertado());
+		botao.addActionListener(new botaoApertado(3));
 		painel1.add(botao);
 		
 		painel1.setBackground(new Color(201, 218, 248));
@@ -102,29 +105,17 @@ public InterfaceGrafica() {
 	}
 	
 	
-	
-	private class botaoCadastrarApertado implements ActionListener {
+	private class botaoApertado implements ActionListener {
+		int seletorDePainel;
+		
+		public botaoApertado(int seletorDePainel) {
+			this.seletorDePainel = seletorDePainel;	
+		}
+		
 		public void actionPerformed(ActionEvent e) {
-			seletorDeJPanel(0);	
+			seletorDeJPanel(seletorDePainel);	
 		}
 	}
 	
-	private class botaoListarApertado implements ActionListener {
-			public void actionPerformed(ActionEvent e) {
-				seletorDeJPanel(1);
-			}
-	}
-	
-	private class botaoAtualizarApertado implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			seletorDeJPanel(2);
-		}
-	}
-	
-	private class botaoDeletarApertado implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			seletorDeJPanel(3);
-		}
-	}
 }
 

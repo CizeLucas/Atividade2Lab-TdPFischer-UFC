@@ -1,55 +1,60 @@
 package interfaceGrafica;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
+import controller.*;
 @SuppressWarnings("serial")
 public class painelDeAtualizar extends Paineis{
-
-	public painelDeAtualizar() {
-
+	
+	DadosAlunos alunos;
+	JTextField jtfMatricula;
+	JTextField jtfVertente;
+	
+	public painelDeAtualizar(DadosAlunos alunos) {
+		this.alunos = alunos;
 		this.setLayout(new GridLayout(3,1));
 
 		JPanel jp1 = criarJPanel(corPadraoJPanel);
 		jp1.add(criarJLabel("Matricula:", corPadraoJLabel));
-		jp1.add(criarJTextField());
+		jtfMatricula = criarJTextField();
+		jp1.add(jtfMatricula);
 		this.add(jp1);
 		
 		
 		JPanel jp2 = criarJPanel(corPadraoJPanel);
 		jp2.add(criarJLabel("Vertente:", corPadraoJLabel));
-		jp2.add(criarJTextField());
+		jtfVertente = criarJTextField();
+		jp2.add(jtfVertente);
 		this.add(jp2);
 		
 		
 		JPanel jp3 =  criarJPanel(corPadraoJPanel);
-		jp3.add(criarJButton("Atualizar", corPadraoJButton));
+		JButton botaoAtualizar = criarJButton("Atualizar", corPadraoJButton);
+		botaoAtualizar.addActionListener(new atualizarAluno());
+		jp3.add(botaoAtualizar);
 		this.add(jp3);
 		
 		this.setBackground(new Color(201, 218, 248));
 		this.setVisible(false);
 	}
 	
-	/*
-	 public painelDeAtualizar() {
-		this.setLayout(new GridLayout(3,3));
+	private class atualizarAluno implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			alunos.atualizarAluno(jtfMatricula.getText(), jtfVertente.getText());
+			alunos.printarAlunos();
+			
+			jtfMatricula.setText("");
+			jtfVertente.setText("");
+		}
 		
-		this.add(criarJLabel("   Matricula: "));
-		this.add(criarJTextField());
-		
-		this.add(criarJLabel("   Vertente: "));
-		this.add(criarJTextField());
-		
-		this.add(criarJButton("Atualizar"));
-		
-		this.setVisible(false);
 	}
-	 */
 	
 }

@@ -1,64 +1,50 @@
 package interfaceGrafica;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class painelDeDeletar extends Paineis{
+import controller.*;
 
-	public painelDeDeletar() {
+@SuppressWarnings("serial")
+public class painelDeDeletar extends Paineis {
+
+	DadosAlunos alunos;
+	JTextField jtfMatricula;
+	
+	public painelDeDeletar(DadosAlunos alunos) {
+		this.alunos = alunos;
+		
 		this.setLayout(new GridLayout(2,2));
 
-		
 		JPanel jp1 = criarJPanel(corPadraoJPanel);
-		//jp1.setLayout(new FlowLayout());
 		jp1.add(criarJLabel("   Matricula: ", corPadraoJLabel));
-		jp1.add(criarJTextField());
+		jtfMatricula = criarJTextField();
+		jp1.add(jtfMatricula);
 		this.add(jp1);
 		
 		JPanel jp2 = criarJPanel(corPadraoJPanel);
-		jp2.add(criarJButton("Deletar", corPadraoJButton));
+		JButton botaoDeletar = criarJButton("Deletar", corPadraoJButton);
+		botaoDeletar.addActionListener(new deletarAluno());
+		jp2.add(botaoDeletar);
 		
 		this.add(jp2);
-		
-		
-		
-		this.setVisible(false);
+		this.setVisible(false);	
 	}
 	
-	/*
-	 	public painelDeDeletar() {
-		this.setLayout(new GridLayout(2,2));
-		
-		JPanel jpE = criarJPanel();
-		jpE.setLayout(new BorderLayout());
-		
-		JPanel jpD = criarJPanel();
-		
-		jpE.add(criarJLabel("   Matricula: "), BorderLayout.LINE_START);
-		jpE.add(criarJTextField(), BorderLayout.CENTER);
-		
-		jpD.add(criarJButton("Deletar"));
-		
-		add(jpE);
-		add(jpD);
-		this.setVisible(false);
-	}
-	 */
-	
-	
-	
-	
-	/*
-	 public painelDeDeletar() {
-		this.setLayout(new GridLayout(2,2));
+	private class deletarAluno implements ActionListener{
 
-		this.add(criarJLabel("   Matricula: "));
+		public void actionPerformed(ActionEvent e) {
+			alunos.deletarAluno(jtfMatricula.getText());
+			alunos.printarAlunos();
+			
+			jtfMatricula.setText("");
+		}
 		
-		this.add(criarJTextField());
-		
-		this.add(criarJButton("Deletar"));
-	
-		this.setVisible(false);
 	}
-	 */
+	
 }
