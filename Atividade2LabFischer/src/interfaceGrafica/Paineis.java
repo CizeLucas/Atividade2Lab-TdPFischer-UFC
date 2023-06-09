@@ -7,8 +7,10 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
 public class Paineis extends JPanel{
@@ -39,6 +41,21 @@ public class Paineis extends JPanel{
 		tf.setFont(new Font("Arial", Font.BOLD, 16));
 		tf.setBackground(corPadraoJTextField);
 		return tf;
+	}
+	
+	public JTable criarJTable(String colunas[], Object linhasDeDados[][]) {
+		JTable jt = new JTable(linhasDeDados, colunas);
+		return jt;
+	}
+	
+	public JTable criarJTable(DefaultTableModel dtm) {
+		JTable jt = new JTable(dtm);
+		return jt;
+	}
+	
+	public JTable criarJTable() {
+		JTable jt = new JTable();
+		return jt;
 	}
 	
 	public JTextField criarJTextField(String msg) {

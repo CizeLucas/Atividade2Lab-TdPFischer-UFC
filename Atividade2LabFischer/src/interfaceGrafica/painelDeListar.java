@@ -1,28 +1,53 @@
 package interfaceGrafica;
 
+import java.util.ArrayList;
+
 import javax.swing.BoxLayout;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 import controller.*;
 @SuppressWarnings("serial")
 public class painelDeListar extends Paineis{
 
 	DadosAlunos alunos;
+	ArrayList<Alunos> arrayAlunosTemp;
+	DefaultTableModel modeloRowTabela;
 	
 	public painelDeListar(DadosAlunos alunos) {
 		this.alunos = alunos;
-		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
-		JPanel jp1 = criarJPanel(corPadraoJPanel, 2);
-		jp1.add(criarJLabel("ALUNO VAI AQUI", corPadraoJLabel));
-		this.add(jp1);
-		JPanel jp2 = criarJPanel(corPadraoJPanel, 2);
-		jp2.add(criarJLabel("ALUNO VAI AQUI", corPadraoJLabel));
-		this.add(jp2);
-		JPanel jp3 = criarJPanel(corPadraoJPanel, 2);
-		jp3.add(criarJLabel("ALUNO VAI AQUI", corPadraoJLabel));
-		this.add(jp3);
+		// ainda não consegui fazer funcionar o JTable :(
 		
+		JPanel jp = criarJPanel(corPadraoJPanel, 1);
+		jp.add(criarJTextField("ainda não consegui fazer funcionar o JTable :("));
+		this.add(jp);
+		
+		arrayAlunosTemp = alunos.getArrayList();
 		this.setVisible(false);
+	}
+	
+	public void listarAlunos() {
+		modeloRowTabela = new DefaultTableModel();
+		
+		Object[] colunas = {"Nome", "CPF", "Matricula", "Vertente"};
+		modeloRowTabela.addRow(colunas);
+		
+		int contador=0;
+		for (Alunos aluno : arrayAlunosTemp) {
+			Object[] dados =  {aluno.getNome(), aluno.getCpf(), aluno.getMatricula(), aluno.getVertente()};
+			modeloRowTabela.addRow(dados);
+			contador++;
+			}
+		
+		JTable jt = criarJTable(modeloRowTabela);
+		jt.setVisible(true);
+		
+		this.add(jt);
+		
+		
 	}
 	
 }

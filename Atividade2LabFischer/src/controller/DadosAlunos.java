@@ -16,7 +16,6 @@ public class DadosAlunos {
 		escrita = new Escrita();
 		leitura = new Leitura(this);
 		leitura.instanciarAlunos();
-		
 	}
 	
 	
@@ -35,9 +34,9 @@ public class DadosAlunos {
 		
 		if(!arrayDeAlunos.contains(alunoTemp)) {
 			arrayDeAlunos.add(alunoTemp);
+			this.salvarAlunos();
 		}
-		
-		this.salvarAlunos();
+
 	}
 	
 	public void atualizarAluno(String matricula, String novaVertente) {
@@ -46,9 +45,9 @@ public class DadosAlunos {
 		for (int i=0; i<arrayDeAlunos.size(); i++) 
 			if(arrayDeAlunos.get(i).getMatricula() == intMatricula) {
 				arrayDeAlunos.get(i).setVertente(novaVertente);
+				this.salvarAlunos();
 			}
-		
-		this.salvarAlunos();
+
 	}
 	
 	public void deletarAluno(String matricula) {
@@ -57,9 +56,9 @@ public class DadosAlunos {
 		for (int i=0; i<arrayDeAlunos.size(); i++) 
 			if(arrayDeAlunos.get(i).getMatricula() == intMatricula) {
 				arrayDeAlunos.remove(i);
+				this.salvarAlunos();
 			}
-		
-		this.salvarAlunos();
+
 	}
 	
 	public void printarAlunos() {
@@ -82,5 +81,8 @@ public class DadosAlunos {
 		}
 	}
 	
+	public ArrayList<Alunos> getArrayList() {
+		return arrayDeAlunos;
+	}
 	
 }

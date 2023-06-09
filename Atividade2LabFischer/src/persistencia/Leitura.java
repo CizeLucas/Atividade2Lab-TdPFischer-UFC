@@ -20,11 +20,11 @@ public class Leitura {
 		
 		diretorioDoArquivo = "src\\dados\\saidaDeDados.txt";
 		
-//			try {
-//				
-//			} catch (FileNotFoundException e) {
-//				e.printStackTrace();
-//			}
+			try {
+				leitor = new BufferedReader(new FileReader(diretorioDoArquivo));
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
 
 			
 	}
@@ -35,7 +35,7 @@ public class Leitura {
 	public void instanciarAlunos() {
 		
 		try {
-			leitor = new BufferedReader(new FileReader(diretorioDoArquivo));
+			
 			while (leitor.ready()) { 	
 				String[] strTemp = leitor.readLine().split(";");
 				alunos.criarNovoAluno(strTemp[0], strTemp[1], strTemp[2], strTemp[3]);
