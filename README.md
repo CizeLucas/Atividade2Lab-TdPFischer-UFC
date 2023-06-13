@@ -1,3 +1,2 @@
 # Atividade2Lab-TdPFischer-UFC
-# Sistema de interface GUI e salvar no arquivo feito
-Mas falta fazer funcionar o JTable
+JTable funcionando desde o dia 13/06 (entrega atrasada)
